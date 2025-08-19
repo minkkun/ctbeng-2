@@ -1,90 +1,55 @@
-import Image from 'next/image'
 import React from 'react'
+import BlogCard from './BlogCard'
+import SectionHeading from '@/components/shared/SectionHeading'
 
 type Props = {}
 
 const Blog = (props: Props) => {
+  const blogPosts = [
+    {
+      image: "/images/1.jpg.webp",
+      date: "Feb 14, 2019",
+      category: "company",
+      title: "Yielding called winged years they are likeness hath morning",
+      link: "single-blog.html"
+    },
+    {
+      image: "/images/2.jpg.webp",
+      date: "Feb 14, 2019",
+      category: "company",
+      title: "Yielding called winged years they are likeness hath morning",
+      link: "single-blog.html"
+    },
+    {
+      image: "/images/3.jpg.webp",
+      date: "Feb 14, 2019",
+      category: "company",
+      title: "Yielding called winged years they are likeness hath morning",
+      link: "single-blog.html"
+    }
+  ]
+
   return (
     <section className="blog-area area-padding">
-        <div className="container">
-          <div className="area-heading">
-            <h3 className="line">Our Recent News</h3>
-            <p>Together female let signs for for fish fowl may first.</p>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-4">
-              <div className="single-blog">
-                <div className="thumb">
-                  <Image width={360} height={285} className="img-fluid" src="/images/1.jpg.webp" alt="" />
-                </div>
-                <div className="short_details">
-                  <div className="meta-top d-flex">
-                    <a href="#">
-                      <i className="ti-calendar"></i> Feb 14, 2019
-                    </a>
-                    <a href="#">
-                      <i className="ti-folder"></i> company
-                    </a>
-                  </div>
-                  <a className="d-block" href="single-blog.html">
-                    <h4>
-                      Yielding called winged years they are likeness hath
-                      morning
-                    </h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-4">
-              <div className="single-blog">
-                <div className="thumb">
-                  <Image width={360} height={285} className="img-fluid" src="/images/2.jpg.webp" alt="" />
-                </div>
-                <div className="short_details">
-                  <div className="meta-top d-flex">
-                    <a href="#">
-                      <i className="ti-calendar"></i> Feb 14, 2019
-                    </a>
-                    <a href="#">
-                      <i className="ti-folder"></i> company
-                    </a>
-                  </div>
-                  <a className="d-block" href="single-blog.html">
-                    <h4>
-                      Yielding called winged years they are likeness hath
-                      morning
-                    </h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-4">
-              <div className="single-blog">
-                <div className="thumb">
-                  <Image width={360} height={285} className="img-fluid" src="/images/3.jpg.webp" alt="" />
-                  
-                </div>
-                <div className="short_details">
-                  <div className="meta-top d-flex">
-                    <a href="#">
-                      <i className="ti-calendar"></i> Feb 14, 2019
-                    </a>
-                    <a href="#">
-                      <i className="ti-folder"></i> company
-                    </a>
-                  </div>
-                  <a className="d-block" href="single-blog.html">
-                    <h4>
-                      Yielding called winged years they are likeness hath
-                      morning
-                    </h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="container">
+        <SectionHeading 
+          title="Our Recent News" 
+          subtitle="Together female let signs for for fish fowl may first." 
+        />
+        <div className="row">
+          {blogPosts.map((post, index) => (
+            <BlogCard
+              key={index}
+              image={post.image}
+              date={post.date}
+              category={post.category}
+              title={post.title}
+              link={post.link}
+            />
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 

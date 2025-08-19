@@ -11,7 +11,14 @@ const MainMenu = (props: Props) => {
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <Link className="navbar-brand logo_h" href="/">
-          <Image src="/images/logo.png.webp" alt="" width={165} height={80} />
+          <Image 
+            src="/images/ctbeng.png" 
+            alt="" 
+            width={0}
+            height={80}
+            style={{ width: 'auto', height: '80px', padding: '10px 0' }}
+            priority
+          />
         </Link>
         <button
           className="navbar-toggler"

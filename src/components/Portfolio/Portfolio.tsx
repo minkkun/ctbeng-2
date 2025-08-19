@@ -1,99 +1,81 @@
-import Image from 'next/image'
 import React from 'react'
+import PortfolioItem from './PortfolioItem'
+import PortfolioFilter from './PortfolioFilter'
+import SectionHeading from '@/components/shared/SectionHeading'
 
 type Props = {
   showHeading?: boolean;
 }
 
 const Portfolio = ({ showHeading = true }: Props) => {
+  const filters = [
+    { label: 'all', filter: '*', isActive: true },
+    { label: 'buildings', filter: '.popular' },
+    { label: 'offices', filter: '.latest' },
+    { label: 'rebuild', filter: '.following' },
+    { label: 'architecture', filter: '.upcoming' }
+  ]
+
+  const portfolioItems = [
+    {
+      image: "/images/1.jpg.webp",
+      category: "construction",
+      title: "Desert Work, Dubai",
+      link: "portfolio-details.html",
+      filterClasses: "following"
+    },
+    {
+      image: "/images/2.jpg.webp",
+      category: "construction",
+      title: "Desert Work, Dubai",
+      link: "portfolio-details.html",
+      filterClasses: "latest popular upcoming"
+    },
+    {
+      image: "/images/3.jpg.webp",
+      category: "construction",
+      title: "Desert Work, Dubai",
+      link: "portfolio-details.html",
+      filterClasses: "latest following"
+    },
+    {
+      image: "/images/4.jpg.webp",
+      category: "construction",
+      title: "Desert Work, Dubai",
+      link: "portfolio-details.html",
+      filterClasses: "latest upcoming"
+    }
+  ]
+
   return (
     <section className="portfolio_area area-padding" id="portfolio">
-        <div className="container">
-          
-          {showHeading ? (<div className="area-heading">
-            <h3 className="line">Our Recent Project</h3>
-            <p>Together female let signs for for fish fowl may first.</p>
-          </div>) : null}
+      <div className="container">
+        
+        {showHeading && (
+          <SectionHeading 
+            title="Our Recent Project" 
+            subtitle="Together female let signs for for fish fowl may first." 
+          />
+        )}
 
-          <div className="filters portfolio-filter">
-            <ul>
-              <li className="active" data-filter="*">
-                all
-              </li>
-              <li data-filter=".popular">buildings</li>
-              <li data-filter=".latest"> offices</li>
-              <li data-filter=".following">rebuild</li>
-              <li data-filter=".upcoming">architecture</li>
-            </ul>
-          </div>
-          <div className="filters-content">
-            <div className="row portfolio-grid">
-              
-              <div className="col-lg-6 col-md-6 all following">
-                <div className="single_portfolio">
-                  <Image width={555} height={419}
-                    className="img-fluid w-100"
-                    src="/images/1.jpg.webp"
-                    alt=""
-                  />
-                  <div className="short_info">
-                    <p>construction</p>
-                    <h4>
-                      <a href="portfolio-details.html">Desert Work, Dubai</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6 all latest popular upcoming">
-                <div className="single_portfolio">
-                  <Image width={555} height={419}
-                    className="img-fluid w-100"
-                    src="/images/2.jpg.webp"
-                    alt=""
-                  />
-                  <div className="short_info">
-                    <p>construction</p>
-                    <h4>
-                      <a href="portfolio-details.html">Desert Work, Dubai</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6 all latest following">
-                <div className="single_portfolio">
-                  <Image width={555} height={419}
-                    className="img-fluid w-100"
-                    src="/images/3.jpg.webp"
-                    alt=""
-                  />
-                  <div className="short_info">
-                    <p>construction</p>
-                    <h4>
-                      <a href="portfolio-details.html">Desert Work, Dubai</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6 all latest upcoming">
-                <div className="single_portfolio">
-                  <Image width={555} height={419}
-                    className="img-fluid w-100"
-                    src="/images/4.jpg.webp"
-                    alt=""
-                  />
-                  
-                  <div className="short_info">
-                    <p>construction</p>
-                    <h4>
-                      <a href="portfolio-details.html">Desert Work, Dubai</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <PortfolioFilter filters={filters} />
+        
+        <div className="filters-content">
+          <div className="row portfolio-grid">
+            {portfolioItems.map((item, index) => (
+              <PortfolioItem
+                key={index}
+                image={item.image}
+                category={item.category}
+                title={item.title}
+                link={item.link}
+                filterClasses={item.filterClasses}
+              />
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 

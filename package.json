@@ -2,6 +2,7 @@
   "name": "sintec-nextjs-starter-template",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,8 +11,8 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
-    "@next/font": "^13.3.1",
     "@types/node": "18.15.11",
+    "@types/nodemailer": "^7.0.0",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
@@ -19,6 +20,7 @@
     "eslint-config-next": "13.3.0",
     "jquery": "^3.6.4",
     "next": "13.3.0",
+    "nodemailer": "^7.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-owl-carousel": "^2.3.3",
