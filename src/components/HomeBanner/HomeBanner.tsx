@@ -73,8 +73,8 @@ const HomeBanner = (props: Props) => {
           >
             <div className="container">
               <div className="banner_content text-center">
-                <span style={{ fontSize: '28px' }}>{slide.subtitle}</span>
-                <h3 style={{ fontSize: '80px' }}>
+                <span className="slide-subtitle">{slide.subtitle}</span>
+                <h3 className="slide-title">
                   {slide.title}
                 </h3>
                 <p className="slide-description">{slide.description}</p>
@@ -87,10 +87,10 @@ const HomeBanner = (props: Props) => {
         ))}
 
         {/* Navigation arrows */}
-        <button className="carousel-control prev" onClick={goToPrevious}>
+        <button className="carousel-control prev" onClick={goToPrevious} aria-label="Previous slide">
           <i className="ti-angle-left"></i>
         </button>
-        <button className="carousel-control next" onClick={goToNext}>
+        <button className="carousel-control next" onClick={goToNext} aria-label="Next slide">
           <i className="ti-angle-right"></i>
         </button>
 
@@ -101,6 +101,7 @@ const HomeBanner = (props: Props) => {
               key={index}
               className={`dot ${index === currentSlide ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>

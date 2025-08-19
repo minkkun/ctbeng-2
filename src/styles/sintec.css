@@ -117,10 +117,17 @@ ul {
   transition: background 0.4s, all 0.3s linear;
 }
 .header_area .navbar {
-  background: transparent;
-  padding: 0px;
+  background: #fff !important; /* Always white background */
+  padding: 15px 0;
   border: 0px;
   border-radius: 0px;
+  transition: padding 0.3s ease;
+  box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.07); /* Subtle shadow */
+}
+.header_area .navbar .container {
+  display: flex;
+  align-items: center;
+  min-height: 110px; /* Accommodate larger logo */
 }
 .header_area .navbar .logo_h {
   color: #fff;
@@ -131,8 +138,16 @@ ul {
   text-transform: uppercase;
   font-weight: 700;
 }
+.header_area .navbar .logo_h img {
+  display: block;
+  margin: 0;
+  padding: 0; /* Remove extra padding */
+  height: 100px; /* Match the logo's intended height */
+  width: auto;
+}
 .header_area .navbar .navbar-brand {
   padding-top: 0;
+  padding-bottom: 0; /* Add bottom padding for consistency */
 }
 .header_area .navbar .nav .nav-item {
   margin-right: 45px;
@@ -141,7 +156,7 @@ ul {
   font: 500 12px/80px "Roboto", sans-serif;
   text-transform: uppercase;
   color: #202e31;
-  padding: 0px;
+  padding: 15px 0; /* Add consistent top and bottom padding */
   display: inline-block;
   font-size: 14px;
 }
@@ -253,6 +268,8 @@ ul {
 
 .top_menu {
   background: #e3f2fd;
+  padding: 8px 0; /* Add consistent top and bottom padding */
+  transition: padding 0.3s ease; /* Smooth transition for padding changes */
 }
 .top_menu .header_social {
   float: right;
@@ -3336,6 +3353,24 @@ h6 {
   color: white;
 }
 
+.slide-subtitle {
+  font-size: 28px;
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.slide-title {
+  font-size: 80px;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
 .slide-description {
   font-size: 18px;
   margin: 20px 0 30px 0;
@@ -3414,6 +3449,10 @@ h6 {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .carousel-container {
+    height: 70vh; /* Reduce height on mobile */
+  }
+  
   .carousel-control {
     width: 50px;
     height: 50px;
@@ -3431,11 +3470,84 @@ h6 {
   .slide-description {
     font-size: 16px;
     padding: 0 20px;
+    margin: 15px 0 20px 0; /* Reduce margins on mobile */
   }
   
   .carousel-dots {
     bottom: 20px;
   }
+  
+  .carousel-slide .banner_content .slide-subtitle {
+    font-size: 20px !important; /* Smaller subtitle on mobile */
+    margin-bottom: 15px;
+  }
+  
+  .carousel-slide .banner_content .slide-title {
+    font-size: 36px !important; /* Smaller title on mobile */
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 60vh; /* Even smaller height on very small screens */
+  }
+  
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .carousel-control.prev {
+    left: 10px;
+  }
+  
+  .carousel-control.next {
+    right: 10px;
+  }
+  
+  .slide-description {
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 10px 0 15px 0;
+  }
+  
+  .carousel-slide .banner_content .slide-subtitle {
+    font-size: 18px !important;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-slide .banner_content .slide-title {
+    font-size: 28px !important;
+    line-height: 1.1;
+  }
+  
+  .carousel-dots {
+    bottom: 15px;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+  }
 }
 
 /* Logo image with aspect ratio preservation */
+
+.main_menu {
+  background: #fff !important; /* Always white background */
+  box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.07); /* Subtle shadow */
+  z-index: 100;
+}
+
+.header_area .navbar .navbar-brand.logo_h {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}

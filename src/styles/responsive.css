@@ -70,11 +70,16 @@
 		border-radius: 0px;
 		padding: 0px;
 		cursor: pointer;
-		margin-top: 27px;
-		margin-bottom: 23px;
+		margin-top: 15px; /* Reduce top margin for better alignment */
+		margin-bottom: 15px; /* Reduce bottom margin for consistency */
 	}
 	.header_area .navbar {
 		background: #fff;
+		padding: 10px 0; /* Add consistent padding on mobile */
+	}
+	.header_area .navbar .nav .nav-item .nav-link {
+		padding: 10px 0; /* Consistent padding for mobile nav items */
+		line-height: 1.5; /* Better line height for mobile */
 	}
 	.navbar-toggler[aria-expanded="false"] span:nth-child(2) {
 		opacity: 1;
@@ -266,6 +271,13 @@
 	}
 	.header_area + section, .header_area + row, .header_area + div {
 		margin-top: 71px;
+	}
+	.header_area .navbar {
+		padding: 8px 0; /* Reduce padding on very small screens */
+	}
+	.navbar-toggler {
+		margin-top: 10px; /* Further reduce margin on very small screens */
+		margin-bottom: 10px;
 	}
     /* Home Banner Area css
     ============================================================================================ */

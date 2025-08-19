@@ -14,9 +14,8 @@ const MainMenu = (props: Props) => {
           <Image 
             src="/images/ctbeng.png" 
             alt="" 
+            height={60}
             width={0}
-            height={80}
-            style={{ width: 'auto', height: '80px', padding: '10px 0' }}
             priority
           />
         </Link>
